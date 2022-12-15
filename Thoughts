@@ -1,0 +1,21 @@
+set score parameters
+set score weights
+set depth - or should we do by time?
+
+game loop
+
+receive inputs
+
+find score parameters
+calculate current score
+
+run simulation
+
+find highest scoring move
+
+make move
+
+end game loop
+
+functions to make
+def allowed_moves(unit)
