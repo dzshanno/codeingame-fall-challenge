@@ -1,3 +1,4 @@
+""" module for the codeingame fall challenge """
 import sys
 import math
 from dataclasses import dataclass
@@ -6,6 +7,37 @@ ME = 1
 OPP = 0
 NONE = -1
 time = 0
+
+def score(tiles):
+    #score components
+    my_tiles = 0
+    opp_tiles= 0
+    my_bots = 0
+    opp_bots = 0
+    my_recyclers = 0
+    opp_recyclers = 0
+    matter = my_matter
+    my_overload = 0
+    tile_weight = 1
+    bot_weight = 1
+    overload_weight = 1
+    matter_weight = 1
+    for t in tiles:
+        if tile.owner == ME:
+            my_tiles += 1
+            if tile.units > 0:
+                my_bots += t.units
+            elif tile.recycler:
+                my_recyclers += 1
+        elif tile.owner == OPP:
+            opp_tiles +=1
+            if tile.units > 0:
+                opp_bots += t.units
+            elif tile.recycler:
+                opp_recyclers += 1
+    my_overload = my_bots - opp_bots
+    score = (my_tiles*tile_weight)+(my_bots*bot_weight)+(my_overload*overload_weight)+(matter*matter_weight)
+    return score
 
 @dataclass
 class Tile:
